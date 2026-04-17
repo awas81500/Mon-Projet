@@ -1,4 +1,4 @@
-name: SonarQube Analysis
+name: SonarCloud Analysis
 
 on:
   push:
@@ -17,11 +17,11 @@ jobs:
         with:
           java-version: '17'
 
-      - name: Run SonarQube
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          gradle sonarqube \
-          -Dsonar.projectKey=Mn-projet \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=$SONAR_TOKEN
+        with:
+          args: >
+            -Dsonar.projectKey=Mn-projet
+            -Dsonar.host.url=https://sonarcloud.io
