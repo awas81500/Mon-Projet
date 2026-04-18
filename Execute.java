@@ -1,4 +1,4 @@
-public class Main {
+public class Execute {
     public static void main(String[] args) {
         System.out.println("Hello SonarQube");
         // test
